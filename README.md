@@ -1,132 +1,257 @@
-﻿### [ Practice Module ] Project Submission Template: Github Repository & Zip File
+ 
 
-**[ Naming Convention ]** CourseCode-StartDate-BatchCode-TeamName-ProjectName.zip
-
-* **[ MTech Thru-Train Group Project Naming Example ]** IRS-PM-2020-01-18-IS02PT-GRP-AwsomeSG-HDB_BTO_Recommender.zip
-
-* **[ MTech Stackable Group Project Naming Example ]** IRS-PM-2020-01-18-STK02-GRP-AwsomeSG-HDB_BTO_Recommender.zip
-
-[Online editor for this README.md markdown file](https://pandao.github.io/editor.md/en.html "pandao")
-
----
-
-### <<<<<<<<<<<<<<<<<<<< Start of Template >>>>>>>>>>>>>>>>>>>>
-
----
-
-## SECTION 1 : PROJECT TITLE
-## Singapore Housing & Deveoplment Board - BTO Recommender System
-
-<img src="SystemCode/clips/static/hdb-bto.png"
-     style="float: left; margin-right: 0px;" />
-
----
-
-## SECTION 2 : EXECUTIVE SUMMARY / PAPER ABSTRACT
-Singapore ranks amongst countries with the highest population density in the world. In a bid to have firm control over long term urban planning, the Singapore government came up with the “Built to Order” (abbreviated BTO) initiative back in 2001. These are new Housing Development Board (HDB) flats tightly controlled by their eligibility and quantity released every year. In more recent years, the modern BTO scheme in Singapore requires a waiting period of 3-4 years, and is generally targeted at young Singaporean couples looking to purchase their first property and set up a family. Nationality and income ceilings are some of the broad filters that determine one’s eligibility for the highly sought after projects. 
+Summary:
+This guide provides steps for installation and usage of the app. Mac operating system is used for the preparation of the guide. Other operating system uses the same steps unless otherwise stated.
 
 
-Our team, comprising of 6 young Singaporeans, all hope to be property owners one day. Many of our peers opt for BTO flats due to their affordability, existence of financial aid from the government, as well as their resale value. However, there often exists a knowledge gap for these young couples during the decision making process and they end up making potentially regretful decisions. We would like to bridge this knowledge gap, and have hence chosen to base our project on creating a recommender system for BTO flats, utilizing the data from recent launches in Tampines, Eunos, Sengkang and Punggol. 
+Pre-requisites
+Operating System
+1.	Linux
+2.	Windows
+3.	Mac
+Required Programs
+1.	Anaconda (we have tested our application based on conda installation of python. Any standalone installation or other type of installation may require self troubleshooting if found any errors)
+2.	Python
+
+Install python libraries
+1.	Please use admin account for this application before installation and usage of the application. 
+Example: For windows, run the terminal as administrator
+For linux and mac: use sudo su 
+
+2.	Please run following steps in the terminal
+pip install psycopg2
+pip install nltk
+python 
+import nltk
+nltk.download('stopwords')
+conda update --force conda
+conda install -c conda-forge scikit-surprise
+
+3.	Please install following libraries
+pip install  beautifulsoup4==4.11.1
+pip install  ChatterBot==1.0.2
+pip install  chatterbot-corpus==1.2.0
+pip install  confection==0.0.4
+pip install  constantly==15.1.0
+pip install  contourpy==1.0.5
+pip install  cookiecutter==1.7.3
+pip install  cryptography==38.0.4
+pip install  cssselect==1.1.0
+pip install  cycler==0.11.0
+pip install  cymem==2.0.7
+pip install  Cython==0.29.32
+pip install  cytoolz==0.12.0
+pip install  daal4py==2021.6.0
+pip install  dask==2022.7.0
+pip install  datashader==0.14.3
+pip install  datashape==0.5.4
+pip install  debugpy==1.5.1
+pip install  decorator==5.1.1
+pip install  defusedxml==0.7.1
+pip install  demoji==1.1.0
+pip install  dictdiffer==0.9.0
+pip install  diff-match-patch==20200713
+pip install  distributed==2022.7.0
+pip install  Flask==1.1.2
+pip install  gensim==4.1.2
+pip install  glob2==0.7
+pip install  gmpy2==2.1.2
+pip install  instagrapi==1.17.6
+pip install  Jinja2==2.11.3
+pip install  jinja2-time==0.2.0
+pip install  langcodes==3.3.0
+pip install  langdetect==1.0.9
+pip install  lazy-object-proxy==1.6.0
+pip install  matplotlib==3.6.2
+pip install  matplotlib-inline==0.1.6
+pip install  neo4j==5.5.0
+pip install  numpy==1.21.5
+pip install  pandas==1.4.4
+pip install  pandocfilters==1.5.0
+pip install  panel==0.14.2
+pip install  param==1.12.3
+pip install  parsel==1.6.0
+pip install  parso==0.8.3
+pip install  partd==1.2.0
+pip install  pathlib==1.0.1
+pip install  pathspec==0.9.0
+pip install  pathy==0.10.1
+pip install  patsy==0.5.3
+pip install  pep8==1.7.1
+pip install  requests==2.28.1
+pip install  requests-file==1.5.1
+pip install  s3transfer==0.6.0
+pip install  scikit-image==0.19.3
+pip install  scikit-learn==1.0.2
+pip install  scikit-surprise==1.1.3
+pip install  scipy==1.10.0
+pip install  Scrapy==2.6.2
+pip install  seaborn==0.12.2
+pip install  spacy==3.5.0
+pip install  spacy-legacy==3.0.12
+pip install  spacy-loggers==1.0.4
+pip install  SQLAlchemy==1.2.19
+pip install  wheel==0.40.0
+pip install  widgetsnbextension==3.5.2
+pip install translate
+pip install demoji
+
+IG4U App
+Download App
+GIthub Link: 
+
+Download the source from the above mentioned github link. Unzip the file “Instawebsite.zip”.
+
+Start App IG4U 
+1.	From Finder(Mac), Files(Linux), File Explorer (Windows): Go into the unzipped folder. Folder contents looks below
+ 
+2.	Right click and choose “Open in Terminal”
+
+ 
+
+3.	Please use admin account for this application before installation and usage of the application. 
+Example: For windows, run the terminal as administrator
+For linux and mac: use sudo su 
+4.	For Mac/Linux systems run the following commands:
+export FLASK_APP=app
+export FLASK_DEBUG=1
+flask run
+
+5.	For Windows run the following commands:
+set FLASK_APP=app
+set FLASK_DEBUG=1
+flask run
+
+6.	Identify the URL that is set by flask: 
+By default: http://127.0.0.1:5000/
+ 
+7.	Go to any web browser (Chrome/Safari/Firefox) and paste/type the URL given in flask. E.g. http://127.0.0.1:5000/
+Eureka!! Now you can access the IG4U app. 
+
+Here is the test account for IG4U login.
+
+Field Name	Value
+Username	test
+Password	123456789
 
 
-Using the techniques imparted to us in lectures, our group first set out to build a sizeable knowledge base via conducting an interview and administering a survey. While building the system, we utilized tools such as Java to scrape real time data from HDB website and transform it into a database, CLIPS to synthesize the rule based reasoning process, and Python to integrate it into an easy to use UI for the everyday user. To add icing on the cake, we even hosted the system on a website so that the everyday user can access it through the click of a link.
+
+ 
+
+8.	As a first time user, you will need to register. Click Register here. Update information and click Register. You will be directed to login page. Please use your credentials to login.
+
+Field Name	Value
+Username	Username that you will use to login to IG4U Password
+Password	Password 
+Instagram Account Name	Input Instagram account name that you would like to analyse.
+Incase, you do not have any Instagram account. You may use our test account:  
+Archieplutowaggingtails
 
 
-Our team had an amazing time working on this project, and hope to share our insights with everyone. Despite a focus on BTO flats, we would recommend it for everybody interested in understanding property market trends for residence or investment purposes. There truly are a wide array of factors behind the decision to invest in a property, and we only wish there was more time to work on the scope and scale of the project. 
 
----
+ 
 
-## SECTION 3 : CREDITS / PROJECT CONTRIBUTION
+9.	Forget Password – Forget password page helps to reset your password in case you forget. From login page -> Click Forget Password.
+Field Name	Value
+Username	Username that you will use to login to IG4U Password
+Password	Password 
+Re-type Password	Password 
 
-| Official Full Name  | Student ID (MTech Applicable)  | Work Items (Who Did What) | Email (Optional) |
-| :------------ |:---------------:| :-----| :-----|
-| Desmond Chua | A1234567A | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A1234567A@nus.edu.sg |
-| Chang Ye Han | A1234567B | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A1234567B@gmail.com |
-| Chee Jia Wei | A1234567C | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A1234567C@outlook.com |
-| Ganesh Kumar | A1234567D | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A1234567D@yahoo.com |
-| Jeanette Lim | A1234567E | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A1234567E@qq.com |
 
----
+ 
 
-## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
+10.	Once successful login, you will be directed to the home page.
 
-[![Sudoku AI Solver](http://img.youtube.com/vi/-AiYLUjP6o8/0.jpg)](https://youtu.be/-AiYLUjP6o8 "Sudoku AI Solver")
+ 
 
-Note: It is not mandatory for every project member to appear in video presentation; Presentation by one project member is acceptable. 
-More reference video presentations [here](https://telescopeuser.wordpress.com/2018/03/31/master-of-technology-solution-know-how-video-index-2/ "video presentations")
+Here are the details of the main page:
+Field Name	Description
+Background Image	Displays the photo that received the most impression among all posts from your profile.
+1	Instagram Page Profile Photo
+2	Instagram Page Full Name as registered
+3	Instagram profile has went through data processing and topic modelling. “I am Known for” is what defines the Instagram page.
+4	You can also directly visit your Instagram page by clicking Instagram icon.
+5	Home Page -> will direct you to this screen when you click.
+6	Refresh -> Allows you to refresh the datasets and generating new info from the Instagram. By default, system will fetch the previously generated information that is saved in your local machine.
+7	About -> brings to about page
+8	Fact -> bring to fact page.
+9	Performace -> bring to performance page
+10	Prediction -> bring to Prediction
+11	Recommendation -> bring to Recommendation
+12	Portfolio -> bring to Portfolio
+13	Logout  -> logout from IG4U account
 
----
+11.	About
+  
 
-## SECTION 5 : USER GUIDE
+Field Name	Description
+1	Instagram profile has went through data processing and topic modelling. “I am Known for” is what defines the Instagram page.
+2	Displays the photo that received the second most impression among all posts from your profile.
+3	Instagram Category -> Instagram profile went through topic modelling with respect to the training dataset of 3 Million records and identifies which topic this page belongs too. For example: what is the category of the Instagram page.
+4	Profile Sentiment -> Instagram profile gone through sentiment analysis and identifies the overall sentiment of the profile
+5	Received Likes (Median) : Median Likes for the over all posts that the page received.
+6	Predicted Likes (Median): Instagram profiles went through prediction modelling and captures what is the likes that this Instagram page is capable of getting for example: This profile has a potential to receive 217 likes in median.
+7	Received Comments (Median) : Median Comments for the over all posts that the page received.
+8	Predicted Comments (Median): Instagram profiles went through prediction modelling and captures what is the Comments that this Instagram page is capable of getting for example: This profile has a potential to receive 217 Comments in median.
+9	Most Frequent Hashtag: the hashtags that the page had used. 
+10	Business Account : displays if this Instagram account is business account or not.
+Business Account is free. It provides lots of benefits for the reach and impression of the posts. 
 
-`Refer to appendix <Installation & User Guide> in project report at Github Folder: ProjectReport`
+12.	Fact
+ 
 
-### [ 1 ] To run the system using iss-vm
+Field Name	Description
+1	Media Count -> number of posts by the Instagram page
+2	Follower Count -> Total number of followers for this Instagram page
+3	Following Count -> How many accounts that the page is following
+4	Impressions -> Impression of the page
+Impression = (total number of likes + comments on Instagram) * 100 / follower count
+5	Topics and Performance:
+Instagram page posts went through topic modelling and identifies each post to 10 identified topics.  Analysis its impressions for each topic and captures top performing topics.
+Note:
+Topics are categorised into : PO_Food, PO_Work_Event, PO_Lifestyle_Health, PO_Fitness, PO_Travel_Celebrations, PO_Hobby, PO_Beauty_Makeup, PO_Skincare_Treatment, PO_Life_Happiness, PO_Shop_Business_Advertisement
 
-> download pre-built virtual machine from http://bit.ly/iss-vm
 
-> start iss-vm
+13.	Performance
+ 
 
-> open terminal in iss-vm
+Field Name	Description
+1	Percentage Received Likes -> Target is assumed to be predicted number of likes with respect to 3 Million training records (Prediction Modelling).
+2	Percentage Received Comments -> Target is assumed to be predicted number of Comments with respect to 3 Million training records (Prediction Modelling).
+3	Percentage Viewership Likes -> Target is assumed to be predicted number of likes based on viewership with respect to 3 Million training records (Prediction Modelling).
+4	Percentage Likes Achieved Photos -> Target is assumed to be predicted number of likes by post type photos with respect to 3 Million training records (Prediction Modelling).
+5	Percentage Likes Achieved Videos  -> Target is assumed to be predicted number of likes by post type videos with respect to 3 Million training records (Prediction Modelling).
+6	Percentage Likes Achieved Albums -> Target is assumed to be predicted number of likes by post type albums with respect to 3 Million training records (Prediction Modelling).
 
-> $ git clone https://github.com/telescopeuser/Workshop-Project-Submission-Template.git
+14.	Prediction
+ 
 
-> $ source activate iss-env-py2
 
-> (iss-env-py2) $ cd Workshop-Project-Submission-Template/SystemCode/clips
+Field Name	Description
+1	Shows the line graph for the total number of likes vs predicted likes based on each posts with the time-frame.
+2	Instagram page posts went through topic modelling and identifies each post to 10 identified topics.  Analysis its impressions for each topic and captures top performing topics.
+Note:
+Topics are categorised into : PO_Food, PO_Work_Event, PO_Lifestyle_Health, PO_Fitness, PO_Travel_Celebrations, PO_Hobby, PO_Beauty_Makeup, PO_Skincare_Treatment, PO_Life_Happiness, PO_Shop_Business_Advertisement
 
-> (iss-env-py2) $ python app.py
 
-> **Go to URL using web browser** http://0.0.0.0:5000 or http://127.0.0.1:5000
+15.	Recommendation
+ 
 
-### [ 2 ] To run the system in other/local machine:
-### Install additional necessary libraries. This application works in python 2 only.
+Field Name	Description
+1	Consistency : How many posts that the profile user needs to post for traction. 
+2	Hashtags: Identify famous hashtags that belongs to top 3 topic performance for the page through content based association ruling. Rating for the hashtags retrieved through ranking modelling.  
+3	Identify top performing topics based on impressions and recommend those topics. 
+4	Account Tagging: Identify famous accounts to tag that belongs to top 3 topic performance for the page through content based association ruling. Rating for the hashtags retrieved through ranking modelling 
+5	Suggestion on creating an engaging advertisement through instragram. 
 
-> $ sudo apt-get install python-clips clips build-essential libssl-dev libffi-dev python-dev python-pip
 
-> $ pip install pyclips flask flask-socketio eventlet simplejson pandas
 
----
-## SECTION 6 : PROJECT REPORT / PAPER
+16.	Portfolio
+ 
 
-`Refer to project report at Github Folder: ProjectReport`
 
-**Recommended Sections for Project Report / Paper:**
-- Executive Summary / Paper Abstract
-- Sponsor Company Introduction (if applicable)
-- Business Problem Background
-- Market Research
-- Project Objectives & Success Measurements
-- Project Solution (To detail domain modelling & system design.)
-- Project Implementation (To detail system development & testing approach.)
-- Project Performance & Validation (To prove project objectives are met.)
-- Project Conclusions: Findings & Recommendation
-- Appendix of report: Project Proposal
-- Appendix of report: Mapped System Functionalities against knowledge, techniques and skills of modular courses: MR, RS, CGS
-- Appendix of report: Installation and User Guide
-- Appendix of report: 1-2 pages individual project report per project member, including: Individual reflection of project journey: (1) personal contribution to group project (2) what learnt is most useful for you (3) how you can apply the knowledge and skills in other situations or your workplaces
-- Appendix of report: List of Abbreviations (if applicable)
-- Appendix of report: References (if applicable)
+Field Name	Description
+1	Displays top 9 photos that the Instagram profile received based on the impression
+2	Shows Actual Likes and Predicted likes for the posts based on predicted number of likes with respect to 3 Million training records (Prediction Modelling).
 
----
-## SECTION 7 : MISCELLANEOUS
-
-`Refer to Github Folder: Miscellaneous`
-
-### HDB_BTO_SURVEY.xlsx
-* Results of survey
-* Insights derived, which were subsequently used in our system
-
----
-
-### <<<<<<<<<<<<<<<<<<<< End of Template >>>>>>>>>>>>>>>>>>>>
-
----
-
-**This [Machine Reasoning (MR)](https://www.iss.nus.edu.sg/executive-education/course/detail/machine-reasoning "Machine Reasoning") course is part of the Analytics and Intelligent Systems and Graduate Certificate in [Intelligent Reasoning Systems (IRS)](https://www.iss.nus.edu.sg/stackable-certificate-programmes/intelligent-systems "Intelligent Reasoning Systems") series offered by [NUS-ISS](https://www.iss.nus.edu.sg "Institute of Systems Science, National University of Singapore").**
-
-**Lecturer: [GU Zhan (Sam)](https://www.iss.nus.edu.sg/about-us/staff/detail/201/GU%20Zhan "GU Zhan (Sam)")**
-
-[![alt text](https://www.iss.nus.edu.sg/images/default-source/About-Us/7.6.1-teaching-staff/sam-website.tmb-.png "Let's check Sam' profile page")](https://www.iss.nus.edu.sg/about-us/staff/detail/201/GU%20Zhan)
-
-**zhan.gu@nus.edu.sg**
+![image](https://github.com/sujatha-sureshkmr/IRS-PM-2023-01-28-IS03PT-IG4U/assets/44421667/e9eaae00-35cc-4c3d-b794-09235a99e00b)
