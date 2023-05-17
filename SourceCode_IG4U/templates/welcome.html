@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>IG4U Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/aos/aos.css" rel="stylesheet">
+  <link href="static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/scss/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+			{% for key, value in data.items() %}
+				{% if value is string %}
+					['{{ key }}', '{{ value }}'],
+				{% else %}
+					['{{ key }}', {{ value }}],
+				{% endif %}
+			{% endfor %}
+        ]);
+
+        var options = {
+          title: 'Topics and Performance',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script> 
+	  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script>
+	
+	  // Set variables from the json data
+      tdata = JSON.parse({{tempdata|tojson|safe}});
+      tempdata = tdata.data;
+      temptitle = tdata.title;
+    
+	</script>
+	
+    <script type="text/javascript">
+       // Load the Visualization API and the corechart package
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback for when the API is loaded
+      google.charts.setOnLoadCallback(drawChart);
+
+      // This is the callback function which actually draws the chart
+      function drawChart() {
+        // Create a data table from the data passed into the template
+        var data_line_likes = new google.visualization.arrayToDataTable(tempdata,false);
+
+        var options = {'title':temptitle,
+                       'width':1200,
+                       'height':350};
+
+        // Instantiate and draw the chart
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+		chart.draw(data_line_likes, options);
+		
+      }
+    </script>
+	
+	 <script>
+	
+	  // Set variables from the json data
+      todata = JSON.parse({{topic_data|tojson|safe}});
+      topic_data = todata.data;
+      title_topic = todata.title;
+    
+	</script>
+	
+    <script type="text/javascript">
+       // Load the Visualization API and the corechart package
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback for when the API is loaded
+      google.charts.setOnLoadCallback(drawChart);
+
+      // This is the callback function which actually draws the chart
+      function drawChart() {
+        // Create a data table from the data passed into the template
+        var topic_data_likes = new google.visualization.arrayToDataTable(topic_data,false);
+
+        var options = {'title':title_topic,
+                       'width':1200,
+                       'height':350};
+
+        // Instantiate and draw the chart
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div_1'));
+		chart.draw(topic_data_likes, options);
+		
+      }
+    </script>
+	
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="{{ profile_photo }}" alt=""  class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="welcome.html">{{profile_name[2]}}</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/{{profile_name[1]}}/" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+		  <li><a href="/Refresh" class="nav-link scrollto"><i class="bi bi-arrow-clockwise"></i><span>Refresh</span></a></li>
+          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="#Fact" class="nav-link scrollto"><i class="bi bi-file-earmark-medical"></i> <span>Fact</span></a></li>
+          <li><a href="#Performance" class="nav-link scrollto"><i class="bi bi-journal-richtext"></i> <span>Performance</span></a></li>
+          <li><a href="#Prediction" class="nav-link scrollto"><i class="bi bi-file-bar-graph-fill"></i> <span>Prediction</span></a></li>
+          <li><a href="#Recommendation" class="nav-link scrollto"><i class="bi bi-person-lines-fill"></i> <span>Recommendation</span></a></li>
+		  <li><a href="#Portfolio" class="nav-link scrollto"><i class="bi bi-person-bounding-box"></i> <span>Portfolio</span></a></li>
+		  <li><a href="{{ url_for('login') }}" class="nav-link scrollto"><i class="bi bi-box-arrow-right"></i><span>logout</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" style="background-image: url({{ best_photo[0] }});"class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>{{profile_name[2]}}</h1>
+      <p>I'm known for <span class="typed" data-typed-items="{{ topic_label }}"></span></p>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>About</h2>
+          <p>{{topic_label[0]}}, {{topic_label[1]}}, {{topic_label[2]}}, {{topic_label[3]}}, {{topic_label[4]}}, {{topic_label[5]}}, {{topic_label[6]}}, {{topic_label[7]}}</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="{{ best_photo[1] }}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3>{{profile_name[2]}}</h3>
+            <h6 class="fst-italic"> <b>
+              Just like pretty much everything else on the internet, your Instagram bio is all about making that impactful first impression. This section covers highlights of your profile.
+            </b></p>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Instagram Category:</strong> <span>{{profile_name[32]}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Received Likes (Median):</strong> <span>{{profile_name[40]}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Received Comments (Median):</strong> <span>{{profile_name[41]}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Most Frequent Hashtag:</strong> <span>{{hashtag[0]}}</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Profile Sentiment:</strong> <span>{{profile_name[38]}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Predicted Likes (Median):</strong> <span>{{profile_name[42]}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Predicted Comments (Median):</strong> <span>{{profile_name[43]}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Business Account:</strong> <span>{{profile_name[13]}}</span></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Facts Section ======= -->
+    <section id="Fact" class="facts">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Facts</h2>
+          <h6 class="fst-italic"> <b>Study facts and do more than is expected of you.</b></p>
+        </div>
+
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
+            <div class="count-box">
+              <i class="bi bi-instagram"></i>
+              <span data-purecounter-start="0" data-purecounter-end="{{ profile_name[7] }}" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Media Count</strong> You have given many creative posts</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="{{ profile_name[8] }}">
+            <div class="count-box">
+              <i class="bi bi-person-bounding-box"></i>
+              <span data-purecounter-start="0" data-purecounter-end="{{ profile_name[8] }}" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Follower Count</strong> Oh wow! You have got a great following </p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="{{ profile_name[9] }}">
+            <div class="count-box">
+              <i class="bi bi-person-lines-fill"></i>
+              <span data-purecounter-start="0" data-purecounter-end="{{ profile_name[9] }}" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Following Count</strong> Great people/accounts whom you are following</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="{{ profile_name[7] }}">
+            <div class="count-box">
+              <i class="bi bi-people"></i>
+              <span data-purecounter-start="0" data-purecounter-end="{{ profile_name[55] }} " data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Impressions (%)</strong> Fascinated by your posts</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Facts Section -->
+    <section id="hashtags" class="facts">
+      <div class="container">
+
+        <div class="section-title">
+		
+		            <p>
+			  <div id="piechart_3d" style="width: 1200px; height: 600px;"></div>
+
+            </p>
+	
+		        </div>
+
+      </div>
+	  </section>
+    <!-- ======= Skills Section ======= -->
+    <section id="Performance" class="skills section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Performance</h2>
+          <h6 class="fst-italic"> <b>A total commitment is a paramount to reaching the ultimate in performance.</b> </p>
+        </div>
+
+        <div class="row skills-content">
+
+          <div class="col-lg-6" data-aos="fade-up">
+
+            <div class="progress">
+              <span class="skill">Percentage Achieved likes <i class="val">{{profile_name[45]}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{profile_name[45]}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Percentage Achieved Comments <i class="val">{{profile_name[46]}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{profile_name[46]}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Percentage Viewership likes <i class="val">{{profile_name[47]}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{profile_name[47]}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="progress">
+              <span class="skill">Percentage Likes Achieved photos <i class="val">{{profile_name[48]}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{profile_name[48]}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Percentage Likes Achieved videos <i class="val">{{profile_name[49]}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{profile_name[49]}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Percentage Likes Achieved albums <i class="val">{{profile_name[50]}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{profile_name[50]}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Resume Section ======= -->
+    <section id="Prediction" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Prediction</h2>
+		  <h6 class="fst-italic"> <b>Unstructured data, artificial intelligence, and machine learning are fast becoming business requirements. Here is insight from data scientists and practitioners.</b></p>
+        <p>
+			     <div class="col-sm shadow p-8 mr-4 mb-4  bg-white rounded">
+					<div id="chart_div"></div>
+
+
+				</div>
+							      <div class="col-sm shadow p-8 mr-4 mb-4  bg-white rounded">
+					<div id="chart_div_1"></div>
+		</p>
+			
+
+        </div>
+	
+      
+		     </div>
+    </section>
+		 <section id="Recommendation" class="portfolio section-bg">
+      <div class="container">		
+
+		<div class="section-title">
+          <h2>Recommendation</h2>
+		  <h6 class="fst-italic"> <b>On the path of actions, great heart is the chief recommendation; on that works, a great head. </b></h6>
+        <p>  
+	
+   
+        
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">Consistency</h3>
+			<p><em>Posting consistently is essential to keep your followers engaged.</em></p>
+		</br></br>
+			<div class="resume-item pb-0">
+			<div class="col-xl-10 col-md-6">
+			
+			<h4>Actual posts per month (median) : {{profile_name[51]}}</h4>
+			<h4>Target posts per month : {{profile_name[53]}}</h4>
+			<h6>Target Achieved</h6>
+			<h5 class="m-b-30 f-w-700"> Count : {{profile_name[52]}}  &nbsp;&nbsp;&nbsp;&nbsp;    <span class="text-c-green m-l-10">Percentage : {{profile_name[54]}}%</span> </h5> 
+			<div class="progress">
+				<div class="progress-bar bg-c-red" style="width:{{profile_name[54]}}%"></div>
+			</div>
+		</div>
+              
+            </div>
+</br></br>
+            <h3 class="resume-title">Hashtags</h3>
+			<p><em>Hashtags are an effective way to reach a broader audience on Instagram.</em> </p></br></br>
+            <div class="resume-item">
+              <h4>Suggested Hashtags</h4>
+              <h5>Ratings: {{rating[0]}}</h5>
+			  <ul>
+				<li>{{df_hashtag_recommend_list[0]}} </li>
+				<li>{{df_hashtag_recommend_list[1]}} </li>
+				<li>{{df_hashtag_recommend_list[2]}}</li>
+				
+				<li>{{df_hashtag_recommend_list[3]}} </li>
+				<li>{{df_hashtag_recommend_list[4]}} </li>
+				<li>{{df_hashtag_recommend_list[5]}}</li>
+				
+				
+				<li>{{df_hashtag_recommend_list[6]}} </li>
+				<li>{{df_hashtag_recommend_list[7]}} </li>
+				<li>{{df_hashtag_recommend_list[8]}}</li>
+				
+				
+
+			</ul>
+            </div></br></br>
+            <h3 class="resume-title">Engagement With Followers</h3>
+			<p><em>Create a sense of community and loyalty around your brand.</em> </p></br></br>
+            <div class="resume-item">
+              <h4>Suggested options: create polls</h4>
+              <p><em>What is your favourite topic that you would like me to post ??</em></p>
+			  <ul>
+				<li>{{top_topic_list[0]}} </li>
+				<li>{{top_topic_list[1]}} </li>
+				<li>{{top_topic_list[2]}}</li>
+
+			</ul>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Collaborate with Other Accounts</h3>
+			<p><em>To cross-promote each other's content and gain new followers.</em> </p></br></br>
+			
+            <div class="resume-item">
+			  <p><em>Suggested Accounts to Tag </em></p>
+              <h5>Ratings: {{rating[1]}}</h5>
+              <ul>
+				<li>{{df_tagaccounts_recommend_list[0]}} </li>
+				<li>{{df_tagaccounts_recommend_list[1]}} </li>
+				<li>{{df_tagaccounts_recommend_list[2]}}</li>
+				
+				<li>{{df_tagaccounts_recommend_list[3]}} </li>
+				<li>{{df_tagaccounts_recommend_list[4]}} </li>
+				<li>{{df_tagaccounts_recommend_list[5]}}</li>
+				
+				
+				<li>{{df_tagaccounts_recommend_list[6]}} </li>
+				<li>{{df_tagaccounts_recommend_list[7]}} </li>
+				<li>{{df_tagaccounts_recommend_list[8]}}</li>
+				
+			</ul>
+            </div>
+			
+			<h3 class="resume-title">Use Instagram Ads</h3>
+			<p><em>Instagram Ads can help you reach a larger audience and increase impressions. You can target specific audiences based on location, interests, and demographics.</em> </p></br></br>
+			
+            <div class="resume-item">
+              <h4>Options to create ads to reach wide audience</h4>
+              <p><em><h5>{{profile_name[13]}}</h5></em></p>
+              <ul>
+                <li>Your Target Topics: {{top_topic_list[0]}}, {{top_topic_list[1]}}, {{top_topic_list[2]}}</li>
+                <li>Create Engaging Ads: You have already set a great example :</br> {{top_topic_list[3]}}</li>
+                <li>Follow Button: Turn on "Follow us" button in your ads.</li>
+              </ul>
+            </div>
+			
+			
+			
+			
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Resume Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="Portfolio" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <h6 class="fst-italic"> <b>Every great profile begins with an even better story.</b></h4>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{{ best_photo[0] }}" class="img-fluid" alt="">
+              <div class="portfolio-links">
+				<p><h2>Actual Like : {{Actual_Like[0]}} <br> Predicted Like : {{Predicted_Like[0]}}</h2></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="{{ best_photo[1] }}" class="img-fluid" alt="">
+			  <div class="portfolio-links">
+				<p><h2>Actual Like : {{Actual_Like[1]}} <br> Predicted Like : {{Predicted_Like[1]}}</h2></p>
+            </div>
+			</div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{{ best_photo[2] }}" class="img-fluid" alt="">
+			  <div class="portfolio-links">
+             <p><h2>Actual Like : {{Actual_Like[2]}} <br> Predicted Like : {{Predicted_Like[2]}}</h2></p>
+            </div>
+			</div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="{{ best_photo[3] }}" class="img-fluid" alt="">
+			  <div class="portfolio-links">
+              <p><h2>Actual Like : {{Actual_Like[3]}} <br> Predicted Like : {{Predicted_Like[3]}}</h2></p>
+            </div>
+			</div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="{{ best_photo[4] }}" class="img-fluid" alt="">
+			  <div class="portfolio-links">
+              <p><h2>Actual Like : {{Actual_Like[4]}} <br> Predicted Like : {{Predicted_Like[4]}}</h2></p>
+            </div>
+			</div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{{ best_photo[5] }}" class="img-fluid" alt="">
+			  <div class="portfolio-links">
+              <p><h2>Actual Like : {{Actual_Like[5]}} <br> Predicted Like : {{Predicted_Like[5]}}</h2></p>
+            </div>
+			</div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="{{ best_photo[6] }}" class="img-fluid" alt="">
+			  <div class="portfolio-links">
+              <p><h2>Actual Like : {{Actual_Like[6]}} <br> Predicted Like : {{Predicted_Like[6]}}</h2></p>
+            </div>
+			</div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="{{ best_photo[7] }}" class="img-fluid" alt="">
+			  <div class="portfolio-links">
+             <p><h2>Actual Like : {{Actual_Like[7]}} <br> Predicted Like : {{Predicted_Like[7]}}</h2></p>
+            </div>
+			</div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="{{ best_photo[8] }}" class="img-fluid" alt="">
+			  <div class="portfolio-links">
+              <p><h2>Actual Like : {{Actual_Like[8]}} <br> Predicted Like : {{Predicted_Like[8]}}</h2></p>
+            </div>
+			</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Contact Section ======= -->
+   
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>IG4U</span></strong>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">IG4U</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/purecounter/purecounter_vanilla.js"></script>
+  <script src="static/aos/aos.js"></script>
+  <script src="static/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/glightbox/js/glightbox.min.js"></script>
+  <script src="static/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/swiper/swiper-bundle.min.js"></script>
+  <script src="static/typed.js/typed.min.js"></script>
+  <script src="static/waypoints/noframework.waypoints.js"></script>
+  <script src="static/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+
+</body>
+
+</html>
