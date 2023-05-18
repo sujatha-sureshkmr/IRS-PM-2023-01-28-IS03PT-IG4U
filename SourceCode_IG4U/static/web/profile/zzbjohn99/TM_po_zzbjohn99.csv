@@ -1,7 +1,0 @@
-description,hashtag,tag_accounts,description_Emoji,description_Language,description_Translated,clean_text,Hobby,Skincare_Treatment,Work_Event,Fitness,Lifestyle_Health,Shop_Business_Advertisement,Beauty_Makeup,Travel_Celebrations,Food,Life_Happiness,dominant_topic,polarity,neg,neu,pos,compound
-"nemo @ Perhentian Malaysia
-good memory with my friends @ GF",,,,en,"nemo @ Perhentian Malaysia
-good memory with my friends @ GF", perhentian malaysia good memori friend ,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.77,8,"{'neg': 0.0, 'neu': 0.33, 'pos': 0.67, 'compound': 0.7269}",0.0,0.33,0.67,0.7269
-BINTAN @ 2019 with children,,,,en,BINTAN @ 2019 with children,bintan  childr,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,5,"{'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}",0.0,1.0,0.0,0.0
-Night spent with friend of GF,,,,en,Night spent with friend of GF,night spent friend ,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.77,8,"{'neg': 0.0, 'neu': 0.385, 'pos': 0.615, 'compound': 0.4939}",0.0,0.385,0.615,0.4939
-"how time flies, y2019 @ Bintan Indonisia",,,,en,"how time flies, y2019 @ Bintan Indonisia",time fli  bintan indonisia,0.03,0.03,0.7,0.03,0.03,0.03,0.03,0.03,0.03,0.03,1,"{'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}",0.0,1.0,0.0,0.0
